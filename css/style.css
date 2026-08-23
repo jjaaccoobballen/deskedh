@@ -79,6 +79,11 @@ img {
   font-size: 1.1rem;
 }
 
+.hero__logo {
+  height: 32px;
+  margin: 0 auto;
+}
+
 /* ============ NAV ============ */
 
 .nav {

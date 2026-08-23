@@ -92,20 +92,22 @@ img {
   z-index: 50;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding: 1.1rem 2rem;
-  background: rgba(5, 5, 7, 0.65);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  background: rgba(5, 5, 7, 0.55);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
   border-bottom: 1px solid var(--glass-border);
 }
 
 .nav__links {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  font-size: 0.95rem;
+  gap: 1.75rem;
+  font-size: 0.9rem;
   color: var(--text-dim);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
 }
 
 .nav__links a:hover {
@@ -154,8 +156,8 @@ img {
 
 .hero__subtitle {
   color: var(--text-dim);
-  font-size: 1rem;
-  max-width: 520px;
+  font-size: 0.9rem;
+  max-width: 460px;
   margin: 0 auto 2.5rem;
 }
 

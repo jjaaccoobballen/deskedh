@@ -81,7 +81,7 @@ img {
 
 .hero__logo {
   height: 72px;
-  margin: -6rem auto 0.5rem;
+  margin: 0 auto 1rem;
 }
 
 /* ============ NAV ============ */
@@ -126,10 +126,10 @@ img {
   position: relative;
   min-height: 92vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   text-align: center;
-  padding: 6rem 1.5rem;
+  padding: 8rem 1.5rem 6rem;
   isolation: isolate;
 }
 

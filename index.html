@@ -3,155 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>deskedh — Look at the world, you can't see.</title>
-  <meta name="description" content="deskedh makes real-world data digestible. Small desk screens for earthquakes, weather, and surf — live, always on, always honest." />
+  <title>deskedh — The world, at a glance.</title>
+  <meta name="description" content="deskedh is a 2.8-inch live data display that makes the world around you easy to understand." />
   <link rel="icon" href="assets/images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
-  <!-- NAV -->
   <header class="nav">
-    <nav class="nav__links">
-      <a href="#products">Products</a>
-      <a href="#how">How it works</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#waitlist" class="nav__cta">Join waitlist</a>
+    <a href="#top" class="brand" aria-label="deskedh home"><img src="assets/images/logo.png" alt="deskedh"></a>
+    <nav aria-label="Main navigation">
+      <a href="#why">Why deskedh</a>
+      <a href="#waitlist" class="nav__cta">Get early access <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section id="top" class="hero">
-    <div class="hero__content">
-      <img src="assets/images/logo.png" alt="deskedh" class="hero__logo" />
-      <h1 class="hero__title">
-        Look at the world,<br /><span class="hero__title-accent">you can't see!</span>
-      </h1>
-      <p class="hero__subtitle">
-        Real-world data, made digestible. Small screens for your desk that show
-        the planet as it happens — because everybody deserves to understand
-        the world around them.
-      </p>
-      <div class="hero__actions">
-        <a href="#waitlist" class="btn btn--primary">Join the waitlist</a>
-        <a href="#products" class="btn btn--ghost">See the devices</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section id="products" class="section products">
-    <h2 class="section__title">Three channels. One idea.</h2>
-    <p class="section__subtitle">Pick a screen, or collect all three.</p>
-
-    <div class="product-grid">
-      <article class="product-card product-card--earth">
-        <img src="assets/images/earth.png" alt="deskedh Earth device showing a live earthquake and volcano map" />
-        <div class="product-card__body">
-          <h3>Earth</h3>
-          <p>Live earthquakes and volcanic activity, mapped in real time, anywhere on the planet.</p>
+  <main>
+    <section id="top" class="hero">
+      <div class="hero__copy">
+        <p class="eyebrow"><span></span> Live world data, at a glance</p>
+        <h1>The world is big.<br><em>Make it visible.</em></h1>
+        <p class="hero__intro">deskedh is a little live-data display for your desk. It turns the information that shapes your day into something you can simply glance at.</p>
+        <div class="hero__actions">
+          <a href="#waitlist" class="button button--primary">Join the waitlist <span aria-hidden="true">↓</span></a>
+          <a href="#why" class="text-link">Meet deskedh <span aria-hidden="true">→</span></a>
         </div>
-      </article>
-
-      <article class="product-card product-card--weather">
-        <img src="assets/images/weather.png" alt="deskedh Weather device showing temperature, UV, AQI and pollen data" />
-        <div class="product-card__body">
-          <h3>Weather</h3>
-          <p>Temperature, UV, air quality, pollen and a 5-day forecast — always current, always on your desk.</p>
+        <dl class="hero__facts">
+          <div><dt>2.8"</dt><dd>LCD display</dd></div>
+          <div><dt>Live <span class="live-indicator" aria-label="Live updates active"></span></dt><dd>world data</dd></div>
+          <div><dt>Wi-Fi</dt><dd>connected</dd></div>
+        </dl>
+      </div>
+      <div class="hero__visual">
+        <div class="product-carousel" aria-label="deskedh product collection">
+          <div class="product-carousel__track">
+            <article class="product-carousel__slide">
+              <img src="assets/images/earth-hero.png" alt="deskedh Earth, a compact display showing live earthquake and volcano activity" class="hero__product">
+            </article>
+            <article class="product-carousel__slide">
+              <img src="assets/images/weather-hero.png" alt="deskedh Weather, a compact display showing local weather conditions" class="hero__product">
+            </article>
+            <article class="product-carousel__slide">
+              <img src="assets/images/surf.png" alt="deskedh Surf, a compact display showing live shore conditions" class="hero__product">
+            </article>
+          </div>
+          <div class="product-carousel__controls">
+            <button type="button" aria-label="Show Earth" aria-current="true"></button>
+            <button type="button" aria-label="Show Weather"></button>
+            <button type="button" aria-label="Show Surf"></button>
+          </div>
         </div>
-      </article>
-
-      <article class="product-card product-card--surf">
-        <img src="assets/images/surf.png" alt="deskedh Surf device showing live wave height, swell and shore data" />
-        <div class="product-card__body">
-          <h3>Surf</h3>
-          <p>Live shore data — wave height, swell period, wind and water temp before you paddle out.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how" class="section how">
-    <h2 class="section__title">How it works</h2>
-    <div class="how-grid">
-      <div class="how-step">
-        <span class="how-step__num">01</span>
-        <h3>Pick a screen</h3>
-        <p>Choose Earth, Weather, or Surf — each one wired to a live public data feed.</p>
       </div>
-      <div class="how-step">
-        <span class="how-step__num">02</span>
-        <h3>Snap it onto a stand</h3>
-        <p>Place it on your desk, shelf, or windowsill. It connects over Wi‑Fi and just runs.</p>
+    </section>
+
+    <section id="why" class="statement">
+      <p class="eyebrow"><span></span> Information with a point of view</p>
+      <h2>Look at the world<br><em>you can’t see.</em></h2>
+      <p class="statement__body">The world is full of things happening every second. deskedh makes it simple to see more of what is going on around you, from the air outside to the shore and the ground beneath your feet.</p>
+    </section>
+
+    <section class="channels">
+      <div class="channels__heading">
+        <p class="eyebrow"><span></span> The first collection</p>
+        <h2>A window into<br><em>your world.</em></h2>
       </div>
-      <div class="how-step">
-        <span class="how-step__num">03</span>
-        <h3>Glance, and know</h3>
-        <p>No app. No login. The data updates itself, all day, every day.</p>
+      <div class="channel-grid">
+        <article class="channel-card">
+          <img src="assets/images/earth-hero.png" alt="deskedh Earth display">
+          <div><p>01 / EARTH</p><h3>The planet, in motion</h3><span>Follow recent earthquakes and volcanic activity from around the world.</span></div>
+        </article>
+        <article class="channel-card">
+          <img src="assets/images/weather-hero.png" alt="deskedh Weather display">
+          <div><p>02 / WEATHER</p><h3>Your local conditions</h3><span>See today’s forecast, air quality, wind and conditions at a glance.</span></div>
+        </article>
+        <article class="channel-card">
+          <img src="assets/images/surf.png" alt="deskedh Surf display">
+          <div><p>03 / SURF</p><h3>Read the shoreline</h3><span>Check swell, wave height, wind and water temperature before heading out.</span></div>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PRICING -->
-  <section id="pricing" class="section pricing">
-    <h2 class="section__title">Pricing</h2>
-    <p class="section__subtitle">Simple, honest pricing. Build the set-up you want.</p>
+    <section class="screen-breakdown" aria-label="What each deskedh screen displays">
+      <img src="assets/images/screen-breakdowns.png" alt="Breakdown of live Earth, Surf and Weather data shown on deskedh screens">
+    </section>
 
-    <div class="pricing-grid">
-      <div class="price-card price-card--featured">
-        <h3>Starter Pack</h3>
-        <p class="price">£40</p>
-        <p class="price-card__desc">One screen of your choice + one stand. The easiest way to start.</p>
-        <a href="#waitlist" class="btn btn--primary btn--full">Join waitlist</a>
+    <section id="waitlist" class="waitlist">
+      <div class="waitlist__content">
+        <p class="eyebrow"><span></span> First to know</p>
+        <h2>Put the world<br>on your desk.</h2>
+        <p>We’re getting deskedh ready for its first wave. Join the list to hear when it’s ready to come home.</p>
       </div>
-
-      <div class="price-card">
-        <h3>Screen</h3>
-        <p class="price">£25</p>
-        <p class="price-card__desc">Earth, Weather, or Surf. Add as many channels as you like.</p>
-        <a href="#waitlist" class="btn btn--ghost btn--full">Join waitlist</a>
-      </div>
-
-      <div class="price-card">
-        <h3>Stand</h3>
-        <p class="price">£8</p>
-        <p class="price-card__desc">A minimal dock for any deskedh screen.</p>
-        <a href="#waitlist" class="btn btn--ghost btn--full">Join waitlist</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- WAITLIST -->
-  <section id="waitlist" class="section waitlist">
-    <div class="waitlist__inner">
-      <h2>Get early access</h2>
-      <p>Join the waitlist and be first to pre-order when deskedh ships.</p>
-
       <form class="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input type="email" name="email" placeholder="you@example.com" required />
-        <select name="interest">
-          <option value="starter">Starter Pack — £40</option>
-          <option value="earth">Earth screen — £25</option>
-          <option value="weather">Weather screen — £25</option>
-          <option value="surf">Surf screen — £25</option>
-          <option value="unsure">Not sure yet</option>
-        </select>
-        <button type="submit" class="btn btn--primary">Notify me</button>
+        <label for="email">Email address</label>
+        <div class="form-row">
+          <input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          <button type="submit" class="button button--primary">Count me in <span aria-hidden="true">→</span></button>
+        </div>
+        <label class="check">
+          <input type="checkbox" name="interest" value="launch updates" required>
+          <span>I’d like launch updates from deskedh.</span>
+        </label>
+        <p class="form-status" aria-live="polite"></p>
       </form>
-      <p class="waitlist-note">No spam. Just one email when we launch.</p>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <img src="assets/images/logo.png" alt="deskedh" class="footer__logo" />
-    <p>&copy; <span id="year"></span> deskedh. Look at the world, you can't see.</p>
+    <a href="#top" class="brand"><img src="assets/images/logo.png" alt="deskedh"></a>
+    <p>Making the invisible visible.</p>
+    <p>© <span id="year"></span> deskedh</p>
   </footer>
-
   <script src="js/main.js"></script>
 </body>
 </html>

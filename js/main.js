@@ -1,37 +1,46 @@
-// deskedh — base interactions
-// This is a placeholder home for future custom animations/graphics.
-
 document.addEventListener('DOMContentLoaded', () => {
-  // Footer year
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  const year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
 
-  // Scroll-reveal for cards and sections
-  const revealTargets = document.querySelectorAll(
-    '.product-card, .how-step, .price-card, .mission__inner, .waitlist__inner'
-  );
-  revealTargets.forEach((el) => el.classList.add('reveal'));
+  const form = document.querySelector('.waitlist-form');
+  const status = document.querySelector('.form-status');
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
+  if (!form || !status) return;
 
-  revealTargets.forEach((el) => observer.observe(el));
+  form.addEventListener('submit', (event) => {
+    if (form.action.includes('YOUR_FORM_ID')) {
+      event.preventDefault();
+      status.textContent = 'Waitlist signups will open soon. Check back shortly.';
+    }
+  });
+
+  const carousel = document.querySelector('.product-carousel__track');
+  const carouselControls = document.querySelectorAll('.product-carousel__controls button');
+  const carouselSlides = document.querySelectorAll('.product-carousel__slide');
+
+  if (!carousel || !carouselControls.length) return;
+
+  const setActiveControl = () => {
+    const activeIndex = Math.round(carousel.scrollLeft / carousel.clientWidth);
+    carouselControls.forEach((control, index) => {
+      control.setAttribute('aria-current', String(index === activeIndex));
+    });
+
+    carouselSlides.forEach((slide, index) => {
+      const distance = (carousel.scrollLeft / carousel.clientWidth) - index;
+      const amount = Math.min(Math.abs(distance), 1);
+      const product = slide.querySelector('.hero__product');
+
+      product.style.opacity = String(1 - amount * 0.55);
+    });
+  };
+
+  carouselControls.forEach((control, index) => {
+    control.addEventListener('click', () => {
+      carousel.scrollTo({ left: carousel.clientWidth * index, behavior: 'smooth' });
+    });
+  });
+
+  carousel.addEventListener('scroll', setActiveControl, { passive: true });
+  setActiveControl();
 });
-
-/*
-  ------------------------------------------------------------
-  Space reserved for custom animation / graphics code.
-  Drop hero canvas/WebGL/particle effects, data-ribbon
-  animations, etc. here or in a new js/ file and import
-  it from index.html.
-  ------------------------------------------------------------
-*/

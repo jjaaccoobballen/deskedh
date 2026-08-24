@@ -14,6 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  const statementRender = document.querySelector('.statement__render');
+
+  if (statementRender) {
+    const renderObserver = new IntersectionObserver(
+      ([entry], observer) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      },
+      { threshold: 0.25 }
+    );
+
+    renderObserver.observe(statementRender);
+  }
+
   const carousel = document.querySelector('.product-carousel__track');
   const carouselControls = document.querySelectorAll('.product-carousel__controls button');
   const carouselSlides = document.querySelectorAll('.product-carousel__slide');

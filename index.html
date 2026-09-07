@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 </head>
 <body>
   <header class="nav">
@@ -69,6 +70,7 @@
         src="deskedhmodel7thsep.glb"
         alt="Interactive 3D model of the deskedh device"
         camera-controls
+        touch-action="pan-y"
         auto-rotate
         auto-rotate-delay="0"
         rotation-per-second="18deg"
@@ -76,8 +78,7 @@
         shadow-intensity="1"
         exposure="1"
         environment-image="neutral"
-        loading="lazy"
-        reveal="manual">
+        loading="eager">
       </model-viewer>
     </section>
 

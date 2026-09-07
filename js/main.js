@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.waitlist-form');
   const status = document.querySelector('.form-status');
 
-  if (!form || !status) return;
-
-  form.addEventListener('submit', (event) => {
-    if (form.action.includes('YOUR_FORM_ID')) {
-      event.preventDefault();
-      status.textContent = 'Waitlist signups will open soon. Check back shortly.';
-    }
-  });
+  if (form && status) {
+    form.addEventListener('submit', (event) => {
+      if (form.action.includes('YOUR_FORM_ID')) {
+        event.preventDefault();
+        status.textContent = 'Waitlist signups will open soon. Check back shortly.';
+      }
+    });
+  }
 
   const statementRender = document.querySelector('.statement__render');
 
@@ -27,6 +27,24 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     renderObserver.observe(statementRender);
+  }
+
+  const statementModel = document.querySelector('.statement__model');
+
+  if (statementModel) {
+    const modelObserver = new IntersectionObserver(
+      ([entry], observer) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        if (typeof entry.target.dismissPoster === 'function') {
+          entry.target.dismissPoster();
+        }
+        observer.unobserve(entry.target);
+      },
+      { threshold: 0.2 }
+    );
+
+    modelObserver.observe(statementModel);
   }
 
   const carousel = document.querySelector('.product-carousel__track');

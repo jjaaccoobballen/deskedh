@@ -47,6 +47,73 @@ document.addEventListener('DOMContentLoaded', () => {
     modelObserver.observe(statementModel);
   }
 
+  // --- 3D model color customization ---
+  const modelViewer = document.getElementById('deskedh-model');
+  const customizeToggle = document.getElementById('customize-toggle');
+  const customizePanel = document.getElementById('customize-panel');
+  const bodySlider = document.getElementById('body-color-slider');
+  const standSlider = document.getElementById('stand-color-slider');
+
+  if (customizeToggle && customizePanel) {
+    customizeToggle.addEventListener('click', () => {
+      const isOpen = !customizePanel.hidden;
+      customizePanel.hidden = isOpen;
+      customizeToggle.setAttribute('aria-expanded', String(!isOpen));
+      customizeToggle.textContent = isOpen ? 'Customize' : 'Hide customize';
+    });
+  }
+
+  if (modelViewer) {
+    let bodyMaterials = [];
+    let standMaterials = [];
+
+    const BODY_MATERIAL_NAME = 'screenbodywhole';
+    const STAND_MATERIAL_NAME = 'standdeskedhfinal';
+
+    const hueToRgb = (hue) => {
+      const h = hue / 360;
+      const s = 0.55;
+      const l = 0.5;
+      const k = (n) => (n + h * 12) % 12;
+      const a = s * Math.min(l, 1 - l);
+      const f = (n) => l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+      return [f(0), f(8), f(4)];
+    };
+
+    const applyHueToMaterials = (materials, hue) => {
+      const [r, g, b] = hueToRgb(hue);
+      materials.forEach((material) => {
+        if (material && material.pbrMetallicRoughness) {
+          material.pbrMetallicRoughness.setBaseColorFactor([r, g, b, 1]);
+        }
+      });
+    };
+
+    const classifyMaterials = () => {
+      const materials = modelViewer.model ? modelViewer.model.materials : [];
+      bodyMaterials = materials.filter(
+        (material) => (material.name || '').toLowerCase() === BODY_MATERIAL_NAME
+      );
+      standMaterials = materials.filter(
+        (material) => (material.name || '').toLowerCase() === STAND_MATERIAL_NAME
+      );
+    };
+
+    modelViewer.addEventListener('load', classifyMaterials);
+
+    if (bodySlider) {
+      bodySlider.addEventListener('input', () => {
+        applyHueToMaterials(bodyMaterials, Number(bodySlider.value));
+      });
+    }
+
+    if (standSlider) {
+      standSlider.addEventListener('input', () => {
+        applyHueToMaterials(standMaterials, Number(standSlider.value));
+      });
+    }
+  }
+
   const carousel = document.querySelector('.product-carousel__track');
   const carouselControls = document.querySelectorAll('.product-carousel__controls button');
   const carouselSlides = document.querySelectorAll('.product-carousel__slide');
